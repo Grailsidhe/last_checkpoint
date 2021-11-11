@@ -7,12 +7,10 @@ import AdminLogin from "./AdminLogin";
 import {ReactComponent as Linkedin} from "./linkedin.svg";
 import {ReactComponent as Github} from "./github.svg";
 import {ReactComponent as Instagram} from "./instagram.svg";
-import useToken from './useToken';
 
 export default function Footer() {
 
     // const { token, setToken } = useContext(Context);
-    const { token, setToken } = useToken();
 
     const adminLogin = ()=> {
         if(!token) {
