@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const path = require('path');
 const Routes = require('./routes/routes');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/projects', require('./routes/projects.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
@@ -36,6 +38,13 @@ app.use((req, res, next) => {
 app.use((req, res) =>
    res.sendFile(path.join(__dirname, 'build', 'index.html'))
 );
+
+// Login token
+app.use('/admin', (req, res) => {
+   res.send({
+     token: 'test123'
+   });
+ });
 
 // Error Handler
 // app.use(errorHandler);

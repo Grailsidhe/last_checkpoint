@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.2.0",
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.0.2",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^4.0.3",
+    "react-use-auth": "^2.1.0-14",
     "resolve": "^1.20.0",
     "semver": "^7.3.5"
   }
