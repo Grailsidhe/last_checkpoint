@@ -1,0 +1,12 @@
+.Cover-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    transition: transform 0.6s ease-in-out;
+}
+
+.Cover-intro {
+    margin: 20px;
+}
