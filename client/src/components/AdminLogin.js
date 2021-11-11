@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./css/Admin.css";
-import Offcanvas from 'react-bootstrap/Offcanvas'
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from "react-router-dom";
-// import Context from './Context';
+import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
     const [show, setShow] = useState(false);
@@ -11,9 +11,9 @@ export default function AdminLogin() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
-    // const { token, setToken } = useContext(Context);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [error, setError] = useState();
 
     /* Show/Hide password field */
     const showPw = ()=> {
@@ -28,19 +28,48 @@ export default function AdminLogin() {
         setName(), setEmail(), setSubject(), setMessage(), setSubmit()
     };
 
-    const handleLogin = async (e)=>{
+
+// AUTH CODE
+    let history = useNavigate();
+
+    useEffect(() => {
+      if (localStorage.getItem("authToken")) {
+        history.push("/adminlogin");
+      }
+    }, [history]);
+  
+    const loginHandler = async (e) => {
         e.preventDefault();
+    
+        const config = {
+            header: {
+            "Content-Type": "application/json",
+            },
+        };
+    
+        try {
+            const { data } = await axios.post(
+            "/api/auth/login",
+            { email, password },
+            config
+            );
+            localStorage.setItem("superAdmin", data.superAdmin)
+            localStorage.setItem("authToken", data.token);
 
-
-
-        // axios.post(`/api/contact`, {username: username, password: password})
-        // .then((res)=>{
-        //     console.log(res);
-        //     setTimeout(()=> clearForm(), 1000);
-        // })
-        // .catch((err)=>{
-        //     console.log(err);
-        // })
+            let superAdmin = JSON.parse(localStorage.getItem("superAdmin"));
+            if(superAdmin){
+                history.push("/admin")
+                setTimeout(()=> clearForm(), 1000);
+            } else{
+                history.push("/")
+                setTimeout(()=> clearForm(), 1000);
+            }
+        } catch (error) {
+            setError(error.response.data.error)
+            setTimeout(()=>{
+            setError("");
+        }, 5000)
+        }
     };
 
 
@@ -80,7 +109,7 @@ export default function AdminLogin() {
                             <input type="checkbox" className="pw-checkbox" onClick={showPw} />&nbsp;Show Password
                         </span>
                     </div>
-                    <button className="Admin-button" onClick={handleLogin}>LOGIN</button>
+                    <button className="Admin-button" onClick={loginHandler}>LOGIN</button>
             
                     <Link to="/admin">Admin</Link>
 

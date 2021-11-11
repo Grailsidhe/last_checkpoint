@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const Routes = require('./routes/routes');
+const errorHandler = require('./Middleware/error');
 
 const app = express();
 app.use(express.json());
@@ -46,8 +47,9 @@ app.use('/admin', (req, res) => {
    });
  });
 
+
 // Error Handler
-// app.use(errorHandler);
+app.use(errorHandler);
 
 const port = process.env.PORT || 5000;
 
