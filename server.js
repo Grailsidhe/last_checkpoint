@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/projects', require('./routes/projects.routes'));
+app.use('/api/admin', require('./routes/admin.routes'));
+app.use('/api/contact', require('./routes/contact.routes'));
+app.use('/api/blogpost', require('./routes/blogpost.routes'));
 Routes(app);
 
 
@@ -19,7 +22,7 @@ mongoose
    .connect(
       `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.stwlg.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
    )
-   .then((result) => console.log('Connected to MONGO ATLAS!'))
+   .then((result) => console.log('You and the Mongo Atlas are one'))
    .catch((err) => console.log(err));
 
 // To solve issue with dual servers

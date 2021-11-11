@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react';
+import { Link } from "react-router-dom";
 import "./css/Footer.css";
 import "./css/vivify.min.css";
 import AdminLogin from "./AdminLogin";
+import Context from './Context';
 import {ReactComponent as Linkedin} from "./linkedin.svg";
 import {ReactComponent as Github} from "./github.svg";
 import {ReactComponent as Instagram} from "./instagram.svg";
@@ -9,9 +11,14 @@ import {ReactComponent as Instagram} from "./instagram.svg";
 export default function Footer() {
 
     const { token, setToken } = useContext(Context);
-    if(!token) {
-        return <AdminLogin setToken={setToken} />
-    }
+
+    const adminLogin = ()=> {
+        if(!token) {
+            return <AdminLogin setToken={setToken} />
+        } else {
+            return <Link to="/admin">Admin</Link>
+        }
+    };
 
     return (
         <div className="Footer-wrapper vivify swoopInBottom">
@@ -24,7 +31,7 @@ export default function Footer() {
                 <a href="https://www.instagram.com/dev.lorianne" target="new"><Instagram alt="Instagram" className="Footer-link" /></a>
             </div>
             <div className="Footer-detail">
-                <AdminLogin />
+                {adminLogin()}
             </div>
         </div>
 
