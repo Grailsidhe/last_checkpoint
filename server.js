@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/api/projects', require('./routes/projects.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
 app.use('/api/contact', require('./routes/contact.routes'));
-app.use('/api/blogpost', require('./routes/blogpost.routes'));
+app.use('/api/blogposts', require('./routes/blogpost.routes'));
 Routes(app);
 
 
