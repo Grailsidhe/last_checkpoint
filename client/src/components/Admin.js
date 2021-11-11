@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import "./css/Admin.css";
 
 export default function Admin() {
@@ -15,6 +16,40 @@ export default function Admin() {
     const [pPicture, setPPicture] = useState();
     const [pUrl, setPUrl] = useState();
 
+
+    
+    const [privateData, setPrivateData] = useState("");
+    const [auth, setAuth] = useState([]);
+
+ // To block users without login
+    useEffect(() => {
+        const fetchPrivateDate = async () => {
+        const config = {
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+        };
+        try {
+            const { data } = await axios.get("/api/private", config);
+            setPrivateData(data.data);
+        } catch (error) {
+            localStorage.removeItem("authToken");
+            setError("You are not authorized please login");
+        }
+    };
+
+    fetchPrivateDate();
+  }, []);
+
+//Logout 
+    const handleLogout = () => {
+        localStorage.removeItem("authToken");
+        history.push("/adminpage/login");
+    }
+
+
+    
     /* Clears forms and states */
     const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select,textarea");
@@ -261,6 +296,8 @@ export default function Admin() {
             </div>
             
             <p className="Admin-submission">&nbsp;{submit}&nbsp;</p>
+            
+            <button className="Admin-button" onClick={handleLogout}>LOG OUT</button>
 
         </div>
     )
