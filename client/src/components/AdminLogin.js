@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+// import axios from "axios";
 import "./css/Admin.css";
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Link } from "react-router-dom";
+// import Context from './Context';
 
 export default function AdminLogin() {
     const [show, setShow] = useState(false);
@@ -9,17 +11,38 @@ export default function AdminLogin() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
+    // const { token, setToken } = useContext(Context);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-    const handleLogin = () => {
-
-    };
 
     /* Show/Hide password field */
     const showPw = ()=> {
         const pw = document.getElementById("pwbox");
         pw.type === "password" ? pw.type = "text" : pw.type = "password"
     };
+
+    /* Clears forms and states */
+    const clearForm = ()=>{
+        const inputs = document.querySelectorAll("input,select,textarea");
+        inputs.forEach((item) => (item.value = ""));
+        setName(), setEmail(), setSubject(), setMessage(), setSubmit()
+    };
+
+    const handleLogin = async (e)=>{
+        e.preventDefault();
+
+
+
+        // axios.post(`/api/contact`, {username: username, password: password})
+        // .then((res)=>{
+        //     console.log(res);
+        //     setTimeout(()=> clearForm(), 1000);
+        // })
+        // .catch((err)=>{
+        //     console.log(err);
+        // })
+    };
+
 
     return (
         <div className="AdminLogin-wrapper">

@@ -16,7 +16,6 @@ import Context from './components/Context';
 export default function App() {
   const [mobile, setMobile] = useState(false);
   const [active, setActive] = useState(1);
-  const [token, setToken] = useState();
 
   return (
     <div className="App-wrapper">

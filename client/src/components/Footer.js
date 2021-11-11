@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 import "./css/Footer.css";
 import "./css/vivify.min.css";
 import AdminLogin from "./AdminLogin";
-import Context from './Context';
+// import Context from './Context';
 import {ReactComponent as Linkedin} from "./linkedin.svg";
 import {ReactComponent as Github} from "./github.svg";
 import {ReactComponent as Instagram} from "./instagram.svg";
+import useToken from './useToken';
 
 export default function Footer() {
 
-    const { token, setToken } = useContext(Context);
+    // const { token, setToken } = useContext(Context);
+    const { token, setToken } = useToken();
 
     const adminLogin = ()=> {
         if(!token) {

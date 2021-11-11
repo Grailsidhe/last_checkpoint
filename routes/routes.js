@@ -8,7 +8,7 @@ const Routes = (app) =>{
     app.use('/api/projects', projectsRouter);
     app.use('/api/contact', contactRouter);
     app.use('/api/admin', adminRouter);
-    app.use('/api/blog', blogpostRouter);
+    app.use('/api/blogposts', blogpostRouter);
 
 }
 
