@@ -57,7 +57,7 @@ a[Header-noclick] {
     filter: drop-shadow(1px 1px 1px rgb(255, 212, 239));
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 650px){
+@media screen and (min-width: 300px) and (max-width: 650px){
 
     .Header-wrapper {
         height: 60px;

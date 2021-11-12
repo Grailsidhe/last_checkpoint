@@ -2,12 +2,12 @@ require('dotenv').config();
 const Admin = require('../models/Admin');
 const ErrorResponse = require('../Utils/ErrorResponse');
 
-exports.register =  async (req, res, next) => {
-    const {username, email, password} = req.body
+exports.register = async (req, res, next) => {
+    const { email, password } = req.body
 
     try {
         const admin = await Admin.create({
-            username, email, password
+            email, password
         })
         res.status(201).json({
             success: true,
@@ -20,7 +20,7 @@ exports.register =  async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
-    const { email, password} = req.body
+    const { email, password } = req.body
 
     if(!email || !password){
         return next(new ErrorResponse('Please provide an email and password', 400))
@@ -57,7 +57,7 @@ exports.deleteUsers = async (req, res, next ) =>{
 };
 
 exports.users =  (req, res) =>{
-    const {username} = req.body;
+    const {email} = req.body;
     Admin.find({})
     .then((result)=>{
         res.status(200).send(result)
@@ -70,5 +70,5 @@ exports.users =  (req, res) =>{
 const sendToken = (user, statusCode, res) =>{
     const token =  user.getSignedToken();
 
-    res.status(statusCode).json({success: true, token, superAdmin: user.superAdmin})
+    res.status(statusCode).json({success: true, token})
 };

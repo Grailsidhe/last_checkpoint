@@ -16,10 +16,7 @@ export default function Admin() {
     const [pPicture, setPPicture] = useState();
     const [pUrl, setPUrl] = useState();
 
-
-    
     const [privateData, setPrivateData] = useState("");
-    const [auth, setAuth] = useState([]);
 
  // To block users without login
     useEffect(() => {
@@ -38,18 +35,17 @@ export default function Admin() {
             setError("You are not authorized please login");
         }
     };
-
     fetchPrivateDate();
   }, []);
 
 //Logout 
+    let history = useHistory();
+
     const handleLogout = () => {
         localStorage.removeItem("authToken");
-        history.push("/adminpage/login");
+        history.push("/");
     }
 
-
-    
     /* Clears forms and states */
     const clearForm = ()=>{
         const inputs = document.querySelectorAll("input,select,textarea");
@@ -205,7 +201,7 @@ export default function Admin() {
                 <button className="Admin-button" onClick={clearForm}>CLEAR FORM</button>
             </div>
 
-            <p className="Admin-submission">&nbsp;{submit}&nbsp;</p>
+            <p className="Admin-submit">&nbsp;{submit}&nbsp;</p>
 
 
 {/* MODIFY/DELETE PROJECT */}
@@ -295,7 +291,7 @@ export default function Admin() {
                 <button className="Admin-button" onClick={clearForm}>CLEAR FORM</button>
             </div>
             
-            <p className="Admin-submission">&nbsp;{submit}&nbsp;</p>
+            <p className="Admin-submit">&nbsp;{submit}&nbsp;</p>
             
             <button className="Admin-button" onClick={handleLogout}>LOG OUT</button>
 

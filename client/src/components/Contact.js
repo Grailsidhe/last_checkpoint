@@ -28,7 +28,7 @@ export default function Contact() {
         })
         .catch((err)=>{
             console.log(err);
-            setSubmit('Error: all fields are required');
+            setSubmit('All fields are required.');
         })
     };
 
@@ -76,7 +76,7 @@ export default function Contact() {
                     }}
                 />
                 <button className="Contact-button" onClick={handleSend}>SEND</button>
-                <p>&nbsp;{submit}&nbsp;</p>
+                <p className="Contact-message">&nbsp;{submit}&nbsp;</p>
             </div>
         </div>
     )

@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const adminSchema = new Schema({
-    username: { type: String, required: [true, 'Please provide a username'],  unique: true},
     email: {
         type: String,
         required: [true, "Please provide email address"],
@@ -14,8 +13,7 @@ const adminSchema = new Schema({
           "Please provide a valid email",
         ],
     },
-    password: { type: String, required: [true, 'Please add a password'], minlength:6, select:false },
-    superAdmin:{ type: Boolean, default:false}
+    password: { type: String, required: [true, 'Please add a password'], minlength:6, select:false }
 });
 
 //verify is the password is modified
@@ -33,7 +31,7 @@ adminSchema.methods.matchPasswords = async function(password) {
 }
 
 adminSchema.methods.getSignedToken = function () {
-    return jwt.sign({id: this._id, superAdmin: this.superAdmin}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE} )
+    return jwt.sign({id: this._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE} )
 }
 
 const Admin = mongoose.model('Admin', adminSchema);
