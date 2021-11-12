@@ -25,11 +25,6 @@
     display: none;
 }
 
-.Header-noclick:hover {
-    color: #a55a94;
-    filter: drop-shadow(0 0 0 rgba(255, 212, 239, 0));
-}
-
 .heart1 {
     transition: all 0.30s;
     height: 10px;
