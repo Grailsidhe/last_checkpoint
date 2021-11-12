@@ -37,6 +37,7 @@
     "react-scripts": "^4.0.3",
     "react-use-auth": "^2.1.0-14",
     "resolve": "^1.20.0",
-    "semver": "^7.3.5"
+    "semver": "^7.3.5",
+    "web-vitals": "^2.1.2"
   }
 }
