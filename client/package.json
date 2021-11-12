@@ -1,6 +1,12 @@
 {
   "name": "client",
   "packageManager": "yarn@3.1.0",
+  "version": "0.1.0",
+  "engines": {
+    "node": "16.3.0"
+  },
+  "private": true,
+  "proxy": "",
   "dependencies": {
     "@types/react-router-dom": "^5.3.2",
     "axios": "^0.24.0",

@@ -2,6 +2,12 @@
   "name": "last_checkpoint",
   "packageManager": "yarn@3.1.0",
   "main": "server.js",
+  "version": "0.1.0",
+  "engines": {
+    "node": "16.3.0"
+  },
+  "private": true,
+  "proxy": "",
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
