@@ -9,3 +9,13 @@
     font-family: 'Bungee Shade', cursive;
     transition: transform 0.6s ease-in-out;
 }
+
+.Blog-post {
+    border: solid 1px #81277a;
+    padding: 30px;
+    margin: 10px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 650px){
+
+}

@@ -96,7 +96,15 @@
     color: #a55a94;
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 650px){
+.AdminLogin-enter {
+    transition: transform 1s ease-in;
+}
+
+@media screen and (min-width: 300px) and (max-width: 650px){
+
+    .Admin-wrapper {
+        margin: 70px auto auto auto;
+    }
 
     .Admin-button-wrapper {
         justify-content: center;
