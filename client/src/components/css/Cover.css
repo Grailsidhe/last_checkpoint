@@ -32,7 +32,7 @@
 @media screen and (min-width: 300px) and (max-width: 650px){
 
     .Cover-intro {
-        /* padding: 55% 20%; */
+/*         padding: 55% 20%; */
         transform: translate(0, 30px);
         margin: auto;
         position: relative;
