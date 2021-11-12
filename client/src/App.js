@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useState } from "react";
 
 // import Components
@@ -13,8 +13,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Context from './components/Context';
 import PrivateRoute from "./components/PrivateRoute";
-import ForgotPassword from "./components/ForgotPassword";
 import AdminLogin from "./components/AdminLogin";
+import Register from "./components/Register";
 
 export default function App() {
   const [mobile, setMobile] = useState(false);
@@ -26,16 +26,16 @@ export default function App() {
           <Context.Provider value={{mobile, setMobile, active, setActive}}>
             <Header />
           </Context.Provider>
-          <Routes>
-            <Route path='/' element={<Cover />} />
-            <Route path='/blog' element={<Blog />} />
-            <Route path='/portfolio' element={<Portfolio />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <PrivateRoute path="/admin" element={<Admin />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
-          </Routes>
+          <Switch>
+            <Route exact path='/' component={Cover} />
+            <Route exact path='/blog' component={Blog} />
+            <Route exact path='/portfolio' component={Portfolio} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/contact' component={Contact} />
+            <PrivateRoute exact path="/admin" component={Admin} />
+            <Route exact path="/admin/login" component={AdminLogin} />
+            <Route exact path="/admin/register" component={Register} />
+          </Switch>
           <Footer />
         </Router>
     </div>

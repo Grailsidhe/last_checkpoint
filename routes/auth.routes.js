@@ -1,9 +1,10 @@
 const express = require('express');
 const authRouter = express.Router();
-const { login, forgotpassword, deleteUsers, users } = require('../Controller/auth');
+const { register, login, deleteUsers, users } = require('../controller/auth');
 
-authRouter.route('/adminlogin').post(login);
-authRouter.route('/forgotpassword').post(forgotpassword);
+
+authRouter.route('/register').post(register);
+authRouter.route('/login').post(login);
 authRouter.route('/:id').delete(deleteUsers);
 authRouter.route('/').get(users);
 

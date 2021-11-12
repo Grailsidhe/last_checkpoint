@@ -9,6 +9,15 @@ import {ReactComponent as Instagram} from "./instagram.svg";
 
 export default function Footer() {
 
+    const handleAdmin = () => {
+        const loggedin = localStorage.getItem("authToken");
+        if(loggedin){
+            return <Link to="/admin">Admin</Link>
+        } else {
+            return <AdminLogin />
+        }
+    };
+
     return (
         <div className="Footer-wrapper vivify swoopInBottom">
             <div className="Footer-detail">
@@ -20,7 +29,7 @@ export default function Footer() {
                 <a href="https://www.instagram.com/dev.lorianne" target="new"><Instagram alt="Instagram" className="Footer-link" /></a>
             </div>
             <div className="Footer-detail">
-                <AdminLogin />
+                {handleAdmin()}
             </div>
         </div>
 
