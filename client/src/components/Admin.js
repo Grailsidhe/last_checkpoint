@@ -71,7 +71,7 @@ export default function Admin() {
     // API call
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/projects`)
+            .get(`/api/projects`)
             .then((response) => setData(response.data))
             .catch((error) => {
                 console.log(error);
