@@ -9,7 +9,7 @@ export default function Blog() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/blogposts`)
+            .get(`/api/blogposts`)
             .then((response) => setData1(response.data))
             .catch((error) => {
                 console.log(error);
