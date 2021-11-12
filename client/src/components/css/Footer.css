@@ -9,7 +9,6 @@
     font-size: 13px;
     width: 100%;
     font-family: 'Chivo', sans-serif;
-    position: fixed;
     bottom: 0;
 }
 
@@ -35,11 +34,11 @@
     width: 40%;
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 650px){
+@media screen and (min-width: 300px) and (max-width: 650px){
 
     .Footer-wrapper {
         font-size: 0.8rem;
-        padding: 20px;
+        padding: 20px auto;
         background-color: #fffff8da;
     }
 

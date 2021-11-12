@@ -77,15 +77,19 @@
     width: 222px;
 }
 
+.Contact-message {
+    margin: 10px auto;
+    font-size: 1.5rem;
+}
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 650px){
+@media screen and (min-width: 300px) and (max-width: 650px){
 
     .Contact-wrapper {
         margin: auto;
     }
 
     .Contact-title {
-        font-size: 5vw;
+        font-size: 1.5rem;
         margin: 10px;
     }
 

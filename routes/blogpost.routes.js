@@ -3,7 +3,7 @@ const Blogpost = require('../models/Blogpost');
 
 //GET Routes
 blogpostRouter.get('/', (req,res)=>{
-    const { title, date, postbody, keywords } = req.body;
+    const { title, date, postbody, picture, keywords } = req.body;
     Blogpost.find({})
     .then((result)=> res.status(200).send(result))
     .catch((err)=>res.status.apply(500).send('Something wrong'))
@@ -11,11 +11,11 @@ blogpostRouter.get('/', (req,res)=>{
 
 //POST Routes
 blogpostRouter.post('/', (req, res) => {
-    const { title, date, postbody, keywords } = req.body
+    const { title, date, postbody, picture, keywords } = req.body
 
-    console.log(title, date, postbody, keywords)
+    console.log(title, date, postbody, picture, keywords)
 
-    Blogpost.create({ title, date, postbody, keywords })
+    Blogpost.create({ title, date, postbody, picture, keywords })
     .then((data) => {
         res.status(200).json(data)
     })
