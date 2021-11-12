@@ -13,7 +13,7 @@
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "react-scripts build",
+    "build": "cd client && react-scripts build",
     "both": "rm -rf build && cd client && yarn run build && mv build ../ && cd .. && nodemon server.js"
   },
   "dependencies": {
