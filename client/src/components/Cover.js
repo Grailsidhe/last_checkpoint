@@ -1,7 +1,6 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import "./css/Cover.css";
-import "./css/vivify.min.css";
 
 export default function Cover() {
 
