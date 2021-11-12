@@ -5,12 +5,12 @@ import "./css/Blog.css";
 
 export default function Blog() {
 
-    const [data, setData] = useState();
+    const [data1, setData1] = useState();
 
     useEffect(() => {
         axios
             .get(`http://localhost:5000/api/blogposts`)
-            .then((response) => setData(response.data))
+            .then((response) => setData1(response.data))
             .catch((error) => {
                 console.log(error);
             });
@@ -19,7 +19,7 @@ export default function Blog() {
     return (
         <div className="Blog-wrapper">
             Blog
-            {data && data.map((item, i)=> {
+            {data1 && data1.map((item, i)=> {
                 <BlogPost 
                     key={i}
                     title={item.title}

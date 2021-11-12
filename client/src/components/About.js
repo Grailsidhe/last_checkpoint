@@ -14,10 +14,9 @@ export default function About() {
                     </picture>
                 </div>
                 <div className="About-text">
-                    <p>I’m an artist with a background in language studies, whose love for web design led to a career in web development.</p>
-                    <p>An unstereotypical vegan who knows astrology, collects tarot cards and loves cats.</p>
-                    <p>When I’m not coding, you may find me riding my bike on a sunny day, taking pictures of beautiful things, or 
-                    watching StarTrek or a Wes Anderson film on the couch.</p>
+                    <p>I’m an artist with language studies, whose love for web design led to a career in web development.</p>
+                    <p>An unstereotypical vegan who shockingly knows astrology, collects tarot cards and loves cats.</p>
+                    <p>When I’m not coding, I love bike riding, rollerblading, photography, sci-fi and Wes Anderson films.</p>
                 </div>
             </div>
         </div>

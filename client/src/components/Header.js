@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <div className="Header-wrapper vivify swoopInTop">
             <div className="Header-nav-mobile">
-                <div onClick={toggleMobile} className="cursor HeaderNav-button">menu</div>
+                <div onClick={toggleMobile} className="pointer HeaderNav-button">menu</div>
                 {mobile && <HeaderNav />}
             </div>
 
