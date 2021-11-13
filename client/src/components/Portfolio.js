@@ -14,7 +14,7 @@ export default function Portfolio() {
     useEffect(() => {
         axios
             .get(`/api/projects`)
-            .then((response) => setData(response.data))
+            .then((response) => setData(response.data.reverse()))
             .catch((error) => {
                 console.log(error);
             });
