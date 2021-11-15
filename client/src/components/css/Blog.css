@@ -19,12 +19,27 @@
     margin: 10px;
 }
 
+.Blog-keyword-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.Blog-keywords {
+    font-size: 0.8rem;
+    font-family: 'Chivo', sans-serif;
+    padding: 5px;
+}
+
 .BlogPost-wrapper {
     width: 100%;
 }
 
 .BlogPost-post {
-    margin: 20px;
+    border: solid 1px #81277a;
+    padding: 5px 10px 5px 5px;
+    margin: 10px 20px;
     font-family: 'Chivo', sans-serif;
     display: flex;
     flex-direction: column;
@@ -69,7 +84,7 @@
 .BlogPost-text {
     text-align: left;
     font-size: 1.1rem;
-    margin: 0 10px 0 0;
+    margin: 0 10px;
 }
 
 .BlogPost-keyword-wrap {

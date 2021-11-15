@@ -17,22 +17,37 @@ export default function Blog() {
             });
     }, []);
 
+    // Handle keywords display
     useEffect(() => {
         const tempKeywords = []
+        const filteredKeywords = []
+
         data && data.forEach((item)=> {
-            const noRepeat = item.keywords.split(",");
-            tempKeywords.push(noRepeat);
-            setKeywLinks([...tempKeywords]);
+            
+            const separate = item.keywords.split(",")
+            tempKeywords.push(...separate)
+            function filtered(){
+                const filterThem = tempKeywords.filter((v, i, a) => a.indexOf(v) === i)
+                filteredKeywords.push(filterThem)
+                return filterThem
+            }
+
+            setKeywLinks(filtered());
         })
     }, [data]);
-
-    console.log(keywLinks)
-    console.log(1, data)
     
     return (
         <div className="Blog-wrapper">
             Blog
-            <div className="Blog-keywords">{keywLinks}</div>
+            <div className="Blog-keyword-wrapper">
+                {keywLinks && keywLinks.map((item)=>{
+                    return(
+                        <div className="Blog-keywords">
+                            <a href="">{item}</a>
+                        </div>
+                    )
+                })}
+            </div>
             {data && data.map((item, i)=> {
                 return ( 
                     <BlogPost 
